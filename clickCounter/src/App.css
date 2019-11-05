@@ -1,0 +1,36 @@
+.app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10%;
+}
+
+h1 {
+  color: cornflowerblue;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.count {
+  color: black;
+}
+
+button {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  margin-right: 16px;
+}
+
+.increment {
+  background-color: #4caf50;
+}
+
+.decrement {
+  background-color: #f44336;
+  float: right;
+}
