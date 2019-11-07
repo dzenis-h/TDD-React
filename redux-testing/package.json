@@ -1,6 +1,7 @@
 {
   "name": "react-redux-testing",
   "author": "Dzenis H.",
+  "description": "Unit testing with React, Redux, and HTTP requests",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
