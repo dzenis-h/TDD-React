@@ -25,6 +25,7 @@ const setup = (props = {}, state = null) => {
  * @param {string} val - Value of data-test attribute for search.
  * @returns {ShallowWrapper}
  */
+
 const findByTestAttr = (wrapper, val) => {
   return wrapper.find(`[data-test="${val}"]`);
 };
@@ -61,28 +62,31 @@ test("counter never goes below 0", () => {
   expect(isBiggerThanZero).toBeGreaterThanOrEqual(0);
 });
 
-test("clicking button increments counter display", () => {
-  const count = 7;
-  const wrapper = setup(null, { count });
+// Group simular test with the 'Describe' function
+// so they won't interfere with other tests
+describe("counter display", () => {
+  let wrapper;
+  let count;
+  // Thanks to the 'describe' we can init a 'beforeEach' function
+  // that will only affect tests inside of its scope
+  beforeEach(() => {
+    count = 5;
+    wrapper = setup(null, { count });
+  });
 
-  // find button and click
-  const button = findByTestAttr(wrapper, "increment-button");
-  button.simulate("click");
+  test("clicking button increments counter display", () => {
+    // find button and click
+    const button = findByTestAttr(wrapper, "increment-button");
+    button.simulate("click");
+    // find display and test value
+    const counterDisplay = findByTestAttr(wrapper, "counter-display");
+    expect(counterDisplay.text()).toContain(count + 1);
+  });
 
-  // find display and test value
-  const counterDisplay = findByTestAttr(wrapper, "counter-display");
-  expect(counterDisplay.text()).toContain(count + 1);
-});
-
-test("clicking button decrements counter display", () => {
-  const count = 7;
-  const wrapper = setup(null, { count });
-
-  // find button and click
-  const button = findByTestAttr(wrapper, "decrement-button");
-  button.simulate("click");
-
-  // find display and test value
-  const counterDisplay = findByTestAttr(wrapper, "counter-display");
-  expect(counterDisplay.text()).toContain(count - 1);
+  test("clicking button decrements counter display", () => {
+    const button = findByTestAttr(wrapper, "decrement-button");
+    button.simulate("click");
+    const counterDisplay = findByTestAttr(wrapper, "counter-display");
+    expect(counterDisplay.text()).toContain(count - 1);
+  });
 });
