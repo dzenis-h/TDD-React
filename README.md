@@ -38,10 +38,6 @@ Contributions are always welcome! If you would like to contribute to this projec
 
 This project is licensed under the MIT License. See the [LICENSE](https://docs.google.com/document/d/11WK7tVoTFRMcWCuGZQCRWxEsDUEJ_6ArtfV-NjWcBCU/edit?usp=sharing) file for more details.
 
-## Deployment 🚀
-
-This project is deployed on Render. You can visit the live site here: https://stitch-shop.onrender.com 
-
 ## Credits 👨🏻‍💻
 
 TDD-React was created by [Dzenis H.](https://dzenis.tech)
